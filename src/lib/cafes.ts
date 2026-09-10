@@ -28,6 +28,10 @@ export type Cafe = {
   photo?: string;
   /** Optional path to the café's own logo, e.g. "/cafes/dose-logo.png". */
   logo?: string;
+  /** The café's own Instagram handle, without the @. */
+  instagram?: string;
+  /** The café's own website. */
+  website?: string;
 };
 
 const BAND = "1.5 – 3.0 KD";
@@ -35,7 +39,7 @@ const BAND = "1.5 – 3.0 KD";
 export const CAFES: Cafe[] = [
   // ---------- Shuwaikh Industrial ----------
   { name: "JUMO Coffee Roasters", area: "Shuwaikh Industrial", knownFor: "Artisan roastery near Sadu House with craft roasts sourced worldwide.", signatures: ["Espresso", "Filter / pour-over", "House roasts"], priceBand: BAND },
-  { name: "Stockroom", area: "Shuwaikh Industrial", knownFor: "A no-frills, serious roastery built around bean buying, cupping and roasting.", signatures: ["Cupping flights", "Single origin", "Retail beans"], priceBand: BAND },
+  { name: "Stockroom", area: "Shuwaikh Industrial", website: "https://stockroomcoffee.com/", knownFor: "A no-frills, serious roastery built around bean buying, cupping and roasting.", signatures: ["Cupping flights", "Single origin", "Retail beans"], priceBand: BAND },
   { name: "VOL.1", area: "Shuwaikh Industrial", knownFor: "Design-led warehouse café, a fixture on Kuwait specialty lists.", signatures: ["Espresso", "Batch brew", "Signature lattes"], priceBand: BAND },
   { name: "% Arabica Shuwaikh", area: "Shuwaikh Industrial", knownFor: "Kuwait's largest % Arabica: café, Probat roaster and training centre.", signatures: ["Single origin espresso", "Kyoto filter"], priceBand: "1.75 – 3.5 KD" },
   { name: "Aroma", area: "Shuwaikh Industrial", knownFor: "Smooth, well-executed brews with a calm, understated room.", signatures: ["Espresso", "Filter"], priceBand: BAND },
@@ -62,6 +66,7 @@ export const CAFES: Cafe[] = [
   { name: "Coffee Republic", area: "Multiple branches", knownFor: "Relaxed neighbourhood chain with branches across Kuwait.", priceBand: "1.0 – 2.5 KD" },
   { name: "Cafe Bazza", area: "Multiple branches", knownFor: "Traditional Kuwaiti breakfast alongside a modern café menu.", signatures: ["Kuwaiti breakfast", "Coffee"], priceBand: "1.5 – 4.0 KD" },
   { name: "Toby's Estate", area: "Mubarak Al Kabeer Street", knownFor: "Australian-style craftsmanship, ethically sourced beans, rich flat whites.", signatures: ["Flat white", "Espresso"], priceBand: BAND },
+  { name: "Dose Café", area: "Mubarak Al Kabeer Street", instagram: "dosecafe_kuwait", knownFor: "The original Dose, opened August 2016 in Mariam Tower. Single-origin beans, stylish room.", signatures: ["Charcoal latte", "Matcha", "Espresso"], priceBand: "1.5 – 3.5 KD" },
 
   // ---------- Salmiya ----------
   { name: "% Arabica Salmiya", area: "Salmiya", knownFor: "Single-origin espresso and clean filter in a Japanese-inspired room.", signatures: ["Single origin espresso", "Filter"], priceBand: "1.75 – 3.5 KD" },
@@ -78,10 +83,10 @@ export const CAFES: Cafe[] = [
   { name: "% Arabica Jabriya", area: "Jabriya", knownFor: "Single-origin espresso, Kyoto-style filter, Chemex-accented design.", signatures: ["Kyoto filter", "Chemex"], priceBand: "1.75 – 3.5 KD" },
 
   // ---------- Jahra ----------
-  { name: "Dose Café Jahra", area: "Jahra", knownFor: "The Jahra Mall branch of Dose, the Kuwaiti chain started in 2016. Single-origin beans and an inventive drinks list.", signatures: ["Charcoal latte", "Matcha", "Single origin"], priceBand: "1.5 – 3.5 KD" },
+  { name: "Dose Café Jahra", area: "Jahra", instagram: "dosecafe_kuwait", knownFor: "The Jahra Mall branch of Dose, the Kuwaiti chain started in 2016. Single-origin beans and an inventive drinks list.", signatures: ["Charcoal latte", "Matcha", "Single origin"], priceBand: "1.5 – 3.5 KD" },
   { name: "Olea Cafe", area: "Jahra", knownFor: "A gem of Jahra: warm room full of bookshelves, plants and natural light, with baked goods alongside the coffee.", signatures: ["Coffee", "Bakes"], priceBand: BAND },
-  { name: "Good Stuck Cafe", area: "Jahra", priceBand: BAND },
-  { name: "Love Sweet Cafe", area: "Jahra", signatures: ["Coffee", "Sweets"], priceBand: BAND },
+  { name: "Good Stock", area: "Jahra", instagram: "goodstockkw", website: "https://goodstockkw.com/en", priceBand: BAND },
+  { name: "The Love Sweet", area: "Jahra", knownFor: "A Jahra sweets-and-coffee spot with a big local following, also on Talabat for delivery.", signatures: ["Coffee", "Sweets"], instagram: "love_sweet_kw", priceBand: BAND },
 ];
 
 /** The coffee districts, for the area chips. */
@@ -92,6 +97,11 @@ export function mapsUrl(cafe: Cafe): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     `${cafe.name} ${cafe.area} Kuwait`,
   )}`;
+}
+
+/** The café's own Instagram page, where their real logo and photos live. */
+export function instagramUrl(cafe: Cafe): string | null {
+  return cafe.instagram ? `https://www.instagram.com/${cafe.instagram}/` : null;
 }
 
 /** Stable number from a name, so each café always gets the same cover art. */

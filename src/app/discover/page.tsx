@@ -4,7 +4,7 @@ import { CafeCover } from "@/components/CafeCover";
 import { FinjalIcon } from "@/components/FinjalIcon";
 import { Logo } from "@/components/Logo";
 import { SaduBand, SaduDivider } from "@/components/SaduBand";
-import { CAFES, CAFE_AREAS, mapsUrl, type Cafe } from "@/lib/cafes";
+import { CAFES, CAFE_AREAS, instagramUrl, mapsUrl, type Cafe } from "@/lib/cafes";
 
 export const metadata: Metadata = {
   title: "Where to drink gahwa in Kuwait",
@@ -16,7 +16,11 @@ function byArea(): [string, Cafe[]][] {
   return CAFE_AREAS.map((area) => [area, CAFES.filter((cafe) => cafe.area === area)]);
 }
 
+const linkClass =
+  "inline-flex items-center justify-center rounded-full border border-sand-300 px-3.5 py-2 text-sm font-semibold text-ink-900 transition-colors hover:bg-sand-100";
+
 function CafeCard({ cafe }: { cafe: Cafe }) {
+  const instagram = instagramUrl(cafe);
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-sand-200 bg-white shadow-sm transition-shadow hover:shadow-md">
       <CafeCover cafe={cafe} />
@@ -60,14 +64,19 @@ function CafeCard({ cafe }: { cafe: Cafe }) {
           >
             Log this
           </Link>
-          <a
-            href={mapsUrl(cafe)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-sand-300 px-4 py-2 text-sm font-semibold text-ink-900 transition-colors hover:bg-sand-100"
-          >
+          <a href={mapsUrl(cafe)} target="_blank" rel="noopener noreferrer" className={linkClass}>
             Maps ↗
           </a>
+          {instagram ? (
+            <a href={instagram} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              Instagram ↗
+            </a>
+          ) : null}
+          {cafe.website ? (
+            <a href={cafe.website} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              Website ↗
+            </a>
+          ) : null}
         </div>
       </div>
     </article>
