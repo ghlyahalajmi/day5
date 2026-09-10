@@ -165,10 +165,8 @@ export default function DiscoverPage() {
             </p>
             <p className="mt-2">
               Each badge shows the caf&eacute;&rsquo;s <strong>own logo</strong> where we can reach
-              one &mdash; from a file in{" "}
-              <code className="rounded bg-mist-200 px-1.5 py-0.5 text-xs">/public/cafes/</code>, or
-              fetched by your browser from their own Instagram or website. Where none loads, the
-              card draws its own emblem rather than borrowing someone else&rsquo;s artwork. The
+              one, fetched by your browser from their own Instagram or website. Where none loads,
+              the card draws its own emblem rather than borrowing someone else&rsquo;s artwork. The
               cover behind it is drawn too: a Sadu weave generated from the caf&eacute;&rsquo;s
               name.
             </p>
