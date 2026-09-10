@@ -38,14 +38,51 @@ const BAND = "1.5 – 3.0 KD";
 
 export const CAFES: Cafe[] = [
   // ---------- Shuwaikh Industrial ----------
-  { name: "JUMO Coffee Roasters", area: "Shuwaikh Industrial", knownFor: "Artisan roastery near Sadu House with craft roasts sourced worldwide.", signatures: ["Espresso", "Filter / pour-over", "House roasts"], priceBand: BAND },
-  { name: "Stockroom", area: "Shuwaikh Industrial", website: "https://stockroomcoffee.com/", knownFor: "A no-frills, serious roastery built around bean buying, cupping and roasting.", signatures: ["Cupping flights", "Single origin", "Retail beans"], priceBand: BAND },
-  { name: "VOL.1", area: "Shuwaikh Industrial", knownFor: "Design-led warehouse café, a fixture on Kuwait specialty lists.", signatures: ["Espresso", "Batch brew", "Signature lattes"], priceBand: BAND },
-  { name: "% Arabica Shuwaikh", area: "Shuwaikh Industrial", knownFor: "Kuwait's largest % Arabica: café, Probat roaster and training centre.", signatures: ["Single origin espresso", "Kyoto filter"], priceBand: "1.75 – 3.5 KD" },
-  { name: "Aroma", area: "Shuwaikh Industrial", knownFor: "Smooth, well-executed brews with a calm, understated room.", signatures: ["Espresso", "Filter"], priceBand: BAND },
+  {
+    name: "JUMO Coffee Roasters",
+    area: "Shuwaikh Industrial",
+    knownFor: "Artisan roastery near Sadu House with craft roasts sourced worldwide.",
+    signatures: ["Espresso", "Filter / pour-over", "House roasts"],
+    priceBand: BAND,
+  },
+  {
+    name: "Stockroom",
+    area: "Shuwaikh Industrial",
+    website: "https://stockroomcoffee.com/",
+    knownFor: "A no-frills, serious roastery built around bean buying, cupping and roasting.",
+    signatures: ["Cupping flights", "Single origin", "Retail beans"],
+    priceBand: BAND,
+  },
+  {
+    name: "VOL.1",
+    area: "Shuwaikh Industrial",
+    knownFor: "Design-led warehouse café, a fixture on Kuwait specialty lists.",
+    signatures: ["Espresso", "Batch brew", "Signature lattes"],
+    priceBand: BAND,
+  },
+  {
+    name: "% Arabica Shuwaikh",
+    area: "Shuwaikh Industrial",
+    website: "https://arabica.coffee/",
+    knownFor: "Kuwait's largest % Arabica: café, Probat roaster and training centre.",
+    signatures: ["Single origin espresso", "Kyoto filter"],
+    priceBand: "1.75 – 3.5 KD",
+  },
+  {
+    name: "Aroma",
+    area: "Shuwaikh Industrial",
+    knownFor: "Smooth, well-executed brews with a calm, understated room.",
+    signatures: ["Espresso", "Filter"],
+    priceBand: BAND,
+  },
   { name: "Caffeine", area: "Shuwaikh Industrial", priceBand: BAND },
   { name: "Boost Cafe", area: "Shuwaikh Industrial", priceBand: BAND },
-  { name: "Car Wash Cafe", area: "Shuwaikh Industrial", knownFor: "One of Shuwaikh's more unusual industrial-unit cafés.", priceBand: BAND },
+  {
+    name: "Car Wash Cafe",
+    area: "Shuwaikh Industrial",
+    knownFor: "One of Shuwaikh's more unusual industrial-unit cafés.",
+    priceBand: BAND,
+  },
   { name: "Days*Cafe", area: "Shuwaikh Industrial", priceBand: BAND },
   { name: "Force Bar", area: "Shuwaikh Industrial", priceBand: BAND },
   { name: "Keys Coffee Shop", area: "Shuwaikh Industrial", priceBand: BAND },
@@ -53,24 +90,124 @@ export const CAFES: Cafe[] = [
   { name: "Ves Vas", area: "Shuwaikh Industrial", priceBand: BAND },
 
   // ---------- Kuwait City / Sharq ----------
-  { name: "Tamper", area: "Kuwait City", knownFor: "Carefully dialled espresso and a bakery-forward pastry programme.", signatures: ["Spanish latte", "Saffron latte", "Pastries"], priceBand: "1.5 – 3.5 KD" },
-  { name: "EAST Café", area: "Kuwait City", knownFor: "Opened in 2017 by a group of Kuwaiti friends. Calm room, playful menu.", signatures: ["Casper Latte", "East Latte", "Panda Latte"], priceBand: BAND },
-  { name: "The Coffee Department", area: "Souq Sharq, Sharq", knownFor: "Waterfront mall spot, modern and airy.", signatures: ["Espresso", "Pour-over", "Flat white"], priceBand: BAND },
-  { name: "Richards Coffee", area: "Kuwait City", knownFor: "A long-standing name on Kuwait City specialty guides.", signatures: ["Espresso", "Cortado", "Filter"], priceBand: BAND },
-  { name: "Altitude", area: "Kuwait City", knownFor: "Sleek, detail-driven café from one of Kuwait's most respected roasters.", signatures: ["Slow brew", "Precise espresso"], priceBand: BAND },
-  { name: "Beans Roastery", area: "Kuwait City", knownFor: "Locally respected roastery focused on sourcing and consistency.", signatures: ["House-roasted beans"], priceBand: BAND },
-  { name: "Space Café", area: "Salhiya Street, Kuwait City", knownFor: "Neighbourhood favourite for espresso and signature drinks.", signatures: ["Espresso", "Signature drinks"], priceBand: BAND },
-  { name: "Grace Cafe", area: "South Mubarakiya", knownFor: "European-style café known for its signature lattes.", signatures: ["Fluffy Latte", "Saffron Latte"], priceBand: BAND },
-  { name: "20 Grams", area: "Kuwait City", knownFor: "Trendy coffee bar with a hip room.", signatures: ["Amber Latte", "Espresso"], priceBand: BAND },
-  { name: "Kaffa Specialty Coffee", area: "Multiple branches", knownFor: "Wide variety of unusual coffee options across several locations.", signatures: ["Specialty filter", "Espresso"], priceBand: BAND },
-  { name: "Coffee Republic", area: "Multiple branches", knownFor: "Relaxed neighbourhood chain with branches across Kuwait.", priceBand: "1.0 – 2.5 KD" },
-  { name: "Cafe Bazza", area: "Multiple branches", knownFor: "Traditional Kuwaiti breakfast alongside a modern café menu.", signatures: ["Kuwaiti breakfast", "Coffee"], priceBand: "1.5 – 4.0 KD" },
-  { name: "Toby's Estate", area: "Mubarak Al Kabeer Street", knownFor: "Australian-style craftsmanship, ethically sourced beans, rich flat whites.", signatures: ["Flat white", "Espresso"], priceBand: BAND },
-  { name: "Dose Café", area: "Mubarak Al Kabeer Street", instagram: "dosecafe_kuwait", knownFor: "The original Dose, opened August 2016 in Mariam Tower. Single-origin beans, stylish room.", signatures: ["Charcoal latte", "Matcha", "Espresso"], priceBand: "1.5 – 3.5 KD" },
+  {
+    name: "Tamper",
+    area: "Kuwait City",
+    knownFor: "Carefully dialled espresso and a bakery-forward pastry programme.",
+    signatures: ["Spanish latte", "Saffron latte", "Pastries"],
+    priceBand: "1.5 – 3.5 KD",
+  },
+  {
+    name: "EAST Café",
+    area: "Kuwait City",
+    knownFor: "Opened in 2017 by a group of Kuwaiti friends. Calm room, playful menu.",
+    signatures: ["Casper Latte", "East Latte", "Panda Latte"],
+    priceBand: BAND,
+  },
+  {
+    name: "The Coffee Department",
+    area: "Souq Sharq, Sharq",
+    knownFor: "Waterfront mall spot, modern and airy.",
+    signatures: ["Espresso", "Pour-over", "Flat white"],
+    priceBand: BAND,
+  },
+  {
+    name: "Richards Coffee",
+    area: "Kuwait City",
+    knownFor: "A long-standing name on Kuwait City specialty guides.",
+    signatures: ["Espresso", "Cortado", "Filter"],
+    priceBand: BAND,
+  },
+  {
+    name: "Altitude",
+    area: "Kuwait City",
+    knownFor: "Sleek, detail-driven café from one of Kuwait's most respected roasters.",
+    signatures: ["Slow brew", "Precise espresso"],
+    priceBand: BAND,
+  },
+  {
+    name: "Beans Roastery",
+    area: "Kuwait City",
+    knownFor: "Locally respected roastery focused on sourcing and consistency.",
+    signatures: ["House-roasted beans"],
+    priceBand: BAND,
+  },
+  {
+    name: "Space Café",
+    area: "Salhiya Street, Kuwait City",
+    knownFor: "Neighbourhood favourite for espresso and signature drinks.",
+    signatures: ["Espresso", "Signature drinks"],
+    priceBand: BAND,
+  },
+  {
+    name: "Grace Cafe",
+    area: "South Mubarakiya",
+    knownFor: "European-style café known for its signature lattes.",
+    signatures: ["Fluffy Latte", "Saffron Latte"],
+    priceBand: BAND,
+  },
+  {
+    name: "20 Grams",
+    area: "Kuwait City",
+    knownFor: "Trendy coffee bar with a hip room.",
+    signatures: ["Amber Latte", "Espresso"],
+    priceBand: BAND,
+  },
+  {
+    name: "Kaffa Specialty Coffee",
+    area: "Multiple branches",
+    knownFor: "Wide variety of unusual coffee options across several locations.",
+    signatures: ["Specialty filter", "Espresso"],
+    priceBand: BAND,
+  },
+  {
+    name: "Coffee Republic",
+    area: "Multiple branches",
+    knownFor: "Relaxed neighbourhood chain with branches across Kuwait.",
+    priceBand: "1.0 – 2.5 KD",
+  },
+  {
+    name: "Cafe Bazza",
+    area: "Multiple branches",
+    knownFor: "Traditional Kuwaiti breakfast alongside a modern café menu.",
+    signatures: ["Kuwaiti breakfast", "Coffee"],
+    priceBand: "1.5 – 4.0 KD",
+  },
+  {
+    name: "Toby's Estate",
+    area: "Mubarak Al Kabeer Street",
+    website: "https://tobysestate.com.au/",
+    knownFor: "Australian-style craftsmanship, ethically sourced beans, rich flat whites.",
+    signatures: ["Flat white", "Espresso"],
+    priceBand: BAND,
+  },
+  {
+    name: "Dose Café",
+    area: "Mubarak Al Kabeer Street",
+    instagram: "dosecafe_kuwait",
+    knownFor:
+      "The original Dose, opened August 2016 in Mariam Tower. Single-origin beans, stylish room.",
+    signatures: ["Charcoal latte", "Matcha", "Espresso"],
+    priceBand: "1.5 – 3.5 KD",
+  },
 
   // ---------- Salmiya ----------
-  { name: "% Arabica Salmiya", area: "Salmiya", knownFor: "Single-origin espresso and clean filter in a Japanese-inspired room.", signatures: ["Single origin espresso", "Filter"], priceBand: "1.75 – 3.5 KD" },
-  { name: "Toby's Estate Salmiya", area: "Salmiya", knownFor: "Australian-style roasts with brunch appeal.", signatures: ["Flat white", "Avocado toast"], priceBand: "1.5 – 4.0 KD" },
+  {
+    name: "% Arabica Salmiya",
+    area: "Salmiya",
+    website: "https://arabica.coffee/",
+    knownFor: "Single-origin espresso and clean filter in a Japanese-inspired room.",
+    signatures: ["Single origin espresso", "Filter"],
+    priceBand: "1.75 – 3.5 KD",
+  },
+  {
+    name: "Toby's Estate Salmiya",
+    area: "Salmiya",
+    website: "https://tobysestate.com.au/",
+    knownFor: "Australian-style roasts with brunch appeal.",
+    signatures: ["Flat white", "Avocado toast"],
+    priceBand: "1.5 – 4.0 KD",
+  },
   { name: "Wild Coffee Bar", area: "Salmiya", priceBand: BAND },
   { name: "New Brew Coffee", area: "Salmiya", priceBand: BAND },
   { name: "Magnet", area: "Salmiya", priceBand: BAND },
@@ -78,15 +215,64 @@ export const CAFES: Cafe[] = [
   { name: "Mr Koobs", area: "Salmiya", priceBand: BAND },
 
   // ---------- Jabriya ----------
-  { name: "Mug Coffee Roastery", area: "Jabriya", knownFor: "A 24/7 roastery café in Jabriya's residential heart.", signatures: ["V60", "Spanish latte", "Single origin"], priceBand: BAND },
-  { name: "Toby's Estate Jabriya", area: "Jabriya", knownFor: "Espresso-based drinks, seasonal brews and all-day bites.", signatures: ["Seasonal brews", "All-day menu"], priceBand: "1.5 – 4.0 KD" },
-  { name: "% Arabica Jabriya", area: "Jabriya", knownFor: "Single-origin espresso, Kyoto-style filter, Chemex-accented design.", signatures: ["Kyoto filter", "Chemex"], priceBand: "1.75 – 3.5 KD" },
+  {
+    name: "Mug Coffee Roastery",
+    area: "Jabriya",
+    knownFor: "A 24/7 roastery café in Jabriya's residential heart.",
+    signatures: ["V60", "Spanish latte", "Single origin"],
+    priceBand: BAND,
+  },
+  {
+    name: "Toby's Estate Jabriya",
+    area: "Jabriya",
+    website: "https://tobysestate.com.au/",
+    knownFor: "Espresso-based drinks, seasonal brews and all-day bites.",
+    signatures: ["Seasonal brews", "All-day menu"],
+    priceBand: "1.5 – 4.0 KD",
+  },
+  {
+    name: "% Arabica Jabriya",
+    area: "Jabriya",
+    website: "https://arabica.coffee/",
+    knownFor: "Single-origin espresso, Kyoto-style filter, Chemex-accented design.",
+    signatures: ["Kyoto filter", "Chemex"],
+    priceBand: "1.75 – 3.5 KD",
+  },
 
   // ---------- Jahra ----------
-  { name: "Dose Café Jahra", area: "Jahra", instagram: "dosecafe_kuwait", knownFor: "The Jahra Mall branch of Dose, the Kuwaiti chain started in 2016. Single-origin beans and an inventive drinks list.", signatures: ["Charcoal latte", "Matcha", "Single origin"], priceBand: "1.5 – 3.5 KD" },
-  { name: "Olea Cafe", area: "Jahra", knownFor: "A gem of Jahra: warm room full of bookshelves, plants and natural light, with baked goods alongside the coffee.", signatures: ["Coffee", "Bakes"], priceBand: BAND },
-  { name: "Good Stock", area: "Jahra", instagram: "goodstockkw", website: "https://goodstockkw.com/en", priceBand: BAND },
-  { name: "The Love Sweet", area: "Jahra", knownFor: "A Jahra sweets-and-coffee spot with a big local following, also on Talabat for delivery.", signatures: ["Coffee", "Sweets"], instagram: "love_sweet_kw", priceBand: BAND },
+  {
+    name: "Dose Café Jahra",
+    area: "Jahra",
+    instagram: "dosecafe_kuwait",
+    knownFor:
+      "The Jahra Mall branch of Dose, the Kuwaiti chain started in 2016. Single-origin beans and an inventive drinks list.",
+    signatures: ["Charcoal latte", "Matcha", "Single origin"],
+    priceBand: "1.5 – 3.5 KD",
+  },
+  {
+    name: "Olea Cafe",
+    area: "Jahra",
+    knownFor:
+      "A gem of Jahra: warm room full of bookshelves, plants and natural light, with baked goods alongside the coffee.",
+    signatures: ["Coffee", "Bakes"],
+    priceBand: BAND,
+  },
+  {
+    name: "Good Stock",
+    area: "Jahra",
+    instagram: "goodstockkw",
+    website: "https://goodstockkw.com/en",
+    priceBand: BAND,
+  },
+  {
+    name: "The Love Sweet",
+    area: "Jahra",
+    knownFor:
+      "A Jahra sweets-and-coffee spot with a big local following, also on Talabat for delivery.",
+    signatures: ["Coffee", "Sweets"],
+    instagram: "love_sweet_kw",
+    priceBand: BAND,
+  },
 ];
 
 /** The coffee districts, for the area chips. */
@@ -104,6 +290,68 @@ export function instagramUrl(cafe: Cafe): string | null {
   return cafe.instagram ? `https://www.instagram.com/${cafe.instagram}/` : null;
 }
 
+/**
+ * The filename a café's logo is expected to have in /public/cafes/.
+ * "% Arabica Jabriya" -> "arabica-jabriya", "Dose Café" -> "dose-cafe".
+ *
+ * Drop "arabica-jabriya.png" in that folder and the card picks it up on the
+ * next build — no code change needed. See public/cafes/README.md.
+ */
+export function slugify(name: string): string {
+  return name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['\u2019]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** The bare host of a café's own site, e.g. "arabica.coffee". */
+function websiteDomain(cafe: Cafe): string | null {
+  if (!cafe.website) return null;
+  try {
+    return new URL(cafe.website).hostname.replace(/^www\./, "");
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Where to look for a café's REAL logo, best source first. The badge walks
+ * this list in the browser and shows the first image that actually loads;
+ * if none do, it draws its own mark instead.
+ *
+ *   1. a file in /public/cafes/ — either set explicitly as `logo`, or just
+ *      named after the café (see `slugify`) and found at build time. Always
+ *      wins, never goes down, and is the only option under your own control
+ *   2. the café's Instagram profile picture, which for a Kuwaiti café is
+ *      almost always their logo
+ *   3. the logo on their own website
+ *
+ * 2 and 3 go through unavatar.io, a public avatar resolver, so nobody's
+ * artwork is copied into this repository — the visitor's browser fetches it
+ * from the café's own channel, the same way a link preview does.
+ * `fallback=false` makes it return nothing rather than a generic silhouette,
+ * so a café with no logo online falls through to our drawn mark instead of
+ * showing a stranger's placeholder.
+ *
+ * Nothing here is guessed. A handle or a site is only listed above where we
+ * actually have it — putting a guessed handle here would risk showing one
+ * business's logo on another's card.
+ */
+export function logoSources(cafe: Cafe, logoFile?: string): string[] {
+  const sources: string[] = [];
+  if (cafe.logo) sources.push(cafe.logo);
+  if (logoFile) sources.push(logoFile);
+  if (cafe.instagram) {
+    sources.push(`https://unavatar.io/instagram/${cafe.instagram}?fallback=false`);
+  }
+  const domain = websiteDomain(cafe);
+  if (domain) sources.push(`https://unavatar.io/${domain}?fallback=false`);
+  return sources;
+}
+
 /** Stable number from a name, so each café always gets the same cover art. */
 export function nameSeed(name: string): number {
   let hash = 0;
@@ -115,7 +363,10 @@ export function nameSeed(name: string): number {
 
 /** Up to two letters for the cover art. */
 export function initials(name: string): string {
-  const words = name.replace(/[^A-Za-z0-9 %]/g, "").split(/\s+/).filter(Boolean);
+  const words = name
+    .replace(/[^A-Za-z0-9 %]/g, "")
+    .split(/\s+/)
+    .filter(Boolean);
   if (words.length === 0) return "☕";
   if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
   return (words[0][0] + words[1][0]).toUpperCase();

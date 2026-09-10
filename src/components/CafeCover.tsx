@@ -1,4 +1,5 @@
-import { initials, nameSeed, type Cafe } from "@/lib/cafes";
+import { BrandBadge } from "./BrandBadge";
+import { nameSeed, type Cafe } from "@/lib/cafes";
 
 /**
  * The visual at the top of each café card: a background, and a round brand
@@ -8,12 +9,12 @@ import { initials, nameSeed, type Cafe } from "@/lib/cafes";
  * with a band of Sadu weaving, both picked deterministically from the name
  * so a café always looks the same.
  *
- * Badge: the café's own logo if it has one, otherwise its monogram.
+ * Badge: see BrandBadge — the café's own logo, from a file you supplied or
+ * from their own Instagram or website, and a drawn emblem if none loads.
  *
- * We do not ship anyone's logo or photograph we do not have. A stock image
- * beside a real business implies it is a picture of that place, and a
- * scraped logo is someone else's trademark. Both `photo` and `logo` are
- * slots: drop your own files into /public/cafes/ and they appear here.
+ * We do not ship anyone's photograph we do not have. A stock image beside a
+ * real business implies it is a picture of that place. `photo` is a slot:
+ * drop your own files into /public/cafes/ and they appear here.
  */
 
 const GRADIENTS = [
@@ -25,7 +26,7 @@ const GRADIENTS = [
   "from-lilac-300 via-azure-300 to-rose-300",
 ];
 
-export function CafeCover({ cafe }: { cafe: Cafe }) {
+export function CafeCover({ cafe, logoFile }: { cafe: Cafe; logoFile?: string }) {
   const seed = nameSeed(cafe.name);
   const gradient = GRADIENTS[seed % GRADIENTS.length];
   // Nudge the weave sideways so no two covers line up identically.
@@ -56,24 +57,7 @@ export function CafeCover({ cafe }: { cafe: Cafe }) {
 
       {/* The brand badge, centred over the cover. */}
       <span className="absolute inset-0 flex items-center justify-center">
-        <span className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-white shadow-lg ring-1 ring-plum-900/10">
-          {cafe.logo ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={cafe.logo}
-              alt={`${cafe.name} logo`}
-              className="h-full w-full object-contain p-1.5"
-              loading="lazy"
-            />
-          ) : (
-            <span
-              aria-hidden="true"
-              className="font-display text-xl font-semibold tracking-tight text-rose-800"
-            >
-              {initials(cafe.name)}
-            </span>
-          )}
-        </span>
+        <BrandBadge cafe={cafe} logoFile={logoFile} />
       </span>
     </div>
   );
