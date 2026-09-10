@@ -63,7 +63,7 @@ export default function LandingPage() {
         <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-5 pt-12 pb-20 sm:px-8 sm:pt-16 sm:pb-28 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-saffron-500/40 bg-espresso-800/70 px-3 py-1 text-xs font-medium tracking-[0.14em] text-saffron-400 uppercase">
-              <FinjalIcon className="h-3.5 w-3.5" />
+              <FinjalIcon className="h-3.5 w-3.5" detail={false} />
               Private by design
             </p>
 

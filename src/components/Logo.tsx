@@ -19,7 +19,7 @@ export function Logo({ href = "/", tone = "dark" }: { href?: string; tone?: "dar
           isLight ? "bg-saffron-500 text-espresso-900" : "bg-gahwa-500 text-sand-50"
         }`}
       >
-        <FinjalIcon className="h-5 w-5" />
+        <FinjalIcon className="h-5 w-5" detail={false} />
       </span>
       <span className="font-display text-base font-semibold whitespace-nowrap tracking-tight sm:text-xl">
         A Gahwa Log

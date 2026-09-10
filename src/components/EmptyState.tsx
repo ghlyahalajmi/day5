@@ -5,9 +5,7 @@ import { SaduDivider } from "./SaduBand";
 export function EmptyState({ onAdd }: { onAdd: React.ReactNode }) {
   return (
     <div className="rounded-3xl border border-dashed border-sand-300 bg-sand-50 px-6 py-14 text-center">
-      <span className="arch-sm mx-auto flex h-16 w-14 items-end justify-center bg-gahwa-100 pb-2.5 text-gahwa-600">
-        <FinjalIcon className="h-7 w-7" />
-      </span>
+      <FinjalIcon className="mx-auto h-16 w-16 text-gahwa-500" />
       <h3 className="mt-5 font-display text-xl font-semibold text-ink-900">
         Your locker is empty <span aria-hidden="true">☕</span>
       </h3>
