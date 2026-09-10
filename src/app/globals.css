@@ -2,8 +2,8 @@
 
 /* ------------------------------------------------------------------
    A Gahwa Log — design tokens
-   Warm sand background, cream cards, one accent inspired by the
-   saffron-amber colour of Arabic coffee.
+   Warm sand and cream, a deep espresso for drama, and two accents:
+   gahwa amber and the saffron that colours Arabic coffee.
    ------------------------------------------------------------------ */
 @theme {
   --color-sand-50: #fdfaf5;
@@ -16,11 +16,20 @@
   --color-ink-700: #4a3a2b;
   --color-ink-500: #7a6a58;
 
-  /* Gahwa amber — 4.6:1 against cream, so white text on it passes AA. */
+  /* Deep roasted-bean tones, for the hero and footer. */
+  --color-espresso-900: #201510;
+  --color-espresso-800: #2c1e16;
+  --color-espresso-700: #3d2b20;
+
+  /* Gahwa amber — 4.6:1 on cream, so white text on it passes AA. */
   --color-gahwa-500: #a8652a;
   --color-gahwa-600: #8e5322;
   --color-gahwa-700: #74431b;
   --color-gahwa-100: #f6e8d8;
+
+  /* Saffron — 7.1:1 against espresso, used for accents on dark. */
+  --color-saffron-400: #e0a83c;
+  --color-saffron-500: #d99a2b;
 
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -38,18 +47,71 @@ body {
   overflow-x: hidden;
 }
 
-/* A visible, consistent focus ring for keyboard users. */
 :focus-visible {
   outline: 2px solid var(--color-gahwa-600);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* Soft steam-like glow used behind the landing hero. */
+/* ------------------------------------------------------------------
+   Sadu band — the geometric diamond weave of Kuwaiti Bedouin textiles,
+   drawn as a repeating SVG so it costs no image request.
+   ------------------------------------------------------------------ */
+.sadu-band {
+  height: 14px;
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 40px 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M10 1 L17 7 L10 13 L3 7 Z' fill='%23a8652a'/%3E%3Cpath d='M30 1 L37 7 L30 13 L23 7 Z' fill='%23d99a2b'/%3E%3Cpath d='M20 4 L23 7 L20 10 L17 7 Z' fill='%238e5322'/%3E%3Cpath d='M0 4 L3 7 L0 10 L-3 7 Z' fill='%238e5322'/%3E%3Cpath d='M40 4 L43 7 L40 10 L37 7 Z' fill='%238e5322'/%3E%3C/svg%3E");
+}
+
+/* Lighter weave for use on the dark espresso hero. */
+.sadu-band-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M10 1 L17 7 L10 13 L3 7 Z' fill='%23d99a2b'/%3E%3Cpath d='M30 1 L37 7 L30 13 L23 7 Z' fill='%23f6e8d8'/%3E%3Cpath d='M20 4 L23 7 L20 10 L17 7 Z' fill='%23a8652a'/%3E%3Cpath d='M0 4 L3 7 L0 10 L-3 7 Z' fill='%23a8652a'/%3E%3Cpath d='M40 4 L43 7 L40 10 L37 7 Z' fill='%23a8652a'/%3E%3C/svg%3E");
+}
+
+/* A single woven diamond, used as a small divider ornament. */
+.sadu-diamond {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+}
+
+/* ------------------------------------------------------------------
+   Arch — the rounded doorway shape from Gulf architecture.
+   ------------------------------------------------------------------ */
+.arch {
+  /* A fixed 88px-tall dome, so content below it is never clipped
+     no matter how tall the panel grows. */
+  border-radius: 50% 50% 24px 24px / 88px 88px 0 0;
+}
+.arch-sm {
+  border-radius: 9999px 9999px 12px 12px;
+}
+
+/* Warm haze behind the hero. */
 .gahwa-glow {
   background-image:
     radial-gradient(60rem 32rem at 12% -10%, var(--color-gahwa-100) 0%, transparent 60%),
     radial-gradient(48rem 28rem at 92% 4%, #f7efe2 0%, transparent 62%);
+}
+
+/* Firelight behind the dark hero. */
+.ember-glow {
+  background-image:
+    radial-gradient(44rem 26rem at 78% 8%, rgba(217, 154, 43, 0.22) 0%, transparent 62%),
+    radial-gradient(38rem 24rem at 8% 92%, rgba(168, 101, 42, 0.28) 0%, transparent 60%);
+}
+
+/* Very light speckle so large flat areas are not dead. */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 14px 14px;
 }
 
 @media (prefers-reduced-motion: reduce) {

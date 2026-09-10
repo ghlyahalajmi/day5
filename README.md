@@ -32,6 +32,7 @@ Deliberately **not** built yet: edit, delete, search, filtering, statistics, pic
 | **React** | Builds the interface out of reusable components. |
 | **TypeScript** | Catches mistakes (like a typo in a column name) before the app runs. |
 | **Tailwind CSS** | Styling, written as small utility classes directly on the markup. |
+| **Design** | Sadu weaving patterns, arch shapes, espresso and saffron — drawn in CSS/SVG, no image files. |
 | **Supabase Auth** | Handles signup, login, logout, and the session cookie. |
 | **Supabase PostgreSQL** | The actual database that stores the gahwa records. |
 | **Supabase Row Level Security** | The privacy lock. Decides which rows each user is allowed to see. |
@@ -67,6 +68,8 @@ src/
 │   ├── RatingInput.tsx          The 1–5 star picker (real radio buttons).
 │   ├── GahwaCard.tsx            One saved gahwa, drawn as a card.
 │   ├── EmptyState.tsx           "Your locker is empty ☕"
+│   ├── SaduBand.tsx             The Sadu weave band and divider ornament.
+│   ├── FinjalIcon.tsx           The finjal (gahwa cup) used as the mark.
 │   └── ...                      Logo, Stars, Alert, AuthShell, SetupNotice.
 └── lib/
     ├── supabase/client.ts       Supabase client for browser code.
