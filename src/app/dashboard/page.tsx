@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Alert } from "@/components/Alert";
 import { DashboardNav } from "@/components/DashboardNav";
 import { LogSection } from "@/components/LogSection";
 import { SetupNotice } from "@/components/SetupNotice";
+import { isGuestUser } from "@/lib/guest";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 import type { GahwaLog } from "@/lib/types";
@@ -51,11 +53,12 @@ export default async function DashboardPage() {
   }
 
   const logs: GahwaLog[] = data ?? [];
-  const greetingName = user.email?.split("@")[0] ?? "friend";
+  const guest = isGuestUser(user);
+  const greetingName = guest ? "guest" : (user.email?.split("@")[0] ?? "friend");
 
   return (
     <>
-      <DashboardNav email={user.email ?? "Signed in"} />
+      <DashboardNav email={user.email ?? "Signed in"} isGuest={guest} />
 
       <main className="mx-auto w-full max-w-5xl flex-1 px-5 py-8 sm:px-8 sm:py-12">
         <section>
@@ -68,6 +71,19 @@ export default async function DashboardPage() {
           <p className="mt-2 max-w-xl text-base text-ink-700">
             Keep track of the gahwa experiences you want to remember.
           </p>
+
+          {guest ? (
+            <p className="mt-4 inline-block rounded-xl border border-sand-300 bg-sand-50 px-4 py-2.5 text-sm text-ink-700">
+              You are looking around as a guest.{" "}
+              <Link
+                href="/signup"
+                className="font-semibold text-gahwa-600 underline underline-offset-4 hover:text-gahwa-700"
+              >
+                Create an account
+              </Link>{" "}
+              to keep a log that is truly yours.
+            </p>
+          ) : null}
         </section>
 
         <div className="mt-8 space-y-6">

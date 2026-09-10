@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Alert } from "./Alert";
 import { fieldClass, labelClass, primaryButtonClass } from "./AuthShell";
+import { GuestButton } from "./GuestButton";
 import { NETWORK_MESSAGE, isNetworkError } from "@/lib/auth-messages";
 import { createClient } from "@/lib/supabase/client";
 
@@ -97,6 +98,21 @@ export function LoginForm() {
       <button type="submit" disabled={isSubmitting} className={primaryButtonClass}>
         {isSubmitting ? "Logging in…" : "Log in"}
       </button>
+
+      {/* Let someone look around without creating an account. */}
+      <div className="flex items-center gap-3 pt-1" aria-hidden="true">
+        <span className="h-px flex-1 bg-sand-300" />
+        <span className="text-xs tracking-wide text-ink-500 uppercase">or</span>
+        <span className="h-px flex-1 bg-sand-300" />
+      </div>
+
+      <GuestButton
+        onError={setError}
+        className="inline-flex w-full items-center justify-center rounded-xl border border-sand-300 bg-sand-50 px-5 py-3 text-base font-semibold text-ink-900 transition-colors hover:bg-sand-100 disabled:cursor-not-allowed disabled:opacity-60"
+      />
+      <p className="text-center text-xs text-ink-500">
+        Look around with sample access. No sign-up needed.
+      </p>
     </form>
   );
 }

@@ -2,7 +2,7 @@ import { Logo } from "./Logo";
 import { SaduBand } from "./SaduBand";
 
 /** Top bar of the private area: brand, current page, account, logout. */
-export function DashboardNav({ email }: { email: string }) {
+export function DashboardNav({ email, isGuest = false }: { email: string; isGuest?: boolean }) {
   return (
     <header>
       <SaduBand />
@@ -17,9 +17,15 @@ export function DashboardNav({ email }: { email: string }) {
             My Log
           </span>
 
-          <p className="hidden max-w-[14rem] truncate text-sm text-sand-300 lg:block" title={email}>
-            {email}
-          </p>
+          {isGuest ? (
+            <span className="rounded-full border border-saffron-500/50 px-3 py-1.5 text-sm font-medium whitespace-nowrap text-saffron-400">
+              Guest
+            </span>
+          ) : (
+            <p className="hidden max-w-[14rem] truncate text-sm text-sand-300 lg:block" title={email}>
+              {email}
+            </p>
+          )}
 
           <form action="/auth/signout" method="post">
             <button

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FinjalIcon } from "@/components/FinjalIcon";
+import { GuestButton } from "@/components/GuestButton";
 import { Logo } from "@/components/Logo";
 import { SaduBand, SaduDivider } from "@/components/SaduBand";
 import { Stars } from "@/components/Stars";
@@ -99,6 +100,13 @@ export default function LandingPage() {
               >
                 Create account
               </Link>
+            </div>
+
+            <div className="mt-5">
+              <GuestButton className="text-sm font-medium text-sand-300 underline underline-offset-4 transition-colors hover:text-saffron-400 disabled:opacity-60" />
+              <p className="mt-1 text-xs text-sand-300/70">
+                Just want a look? Try it without signing up.
+              </p>
             </div>
           </div>
 
