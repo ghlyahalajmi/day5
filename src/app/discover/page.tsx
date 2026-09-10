@@ -23,7 +23,7 @@ const linkClass =
 function CafeCard({ cafe, logoFile }: { cafe: Cafe; logoFile?: string }) {
   const instagram = instagramUrl(cafe);
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-3xl lift border border-mist-200 bg-white shadow-sm">
+    <article className="lift flex h-full flex-col overflow-hidden rounded-3xl border border-mist-200 bg-white shadow-sm">
       <CafeCover cafe={cafe} logoFile={logoFile} />
 
       <div className="flex flex-1 flex-col p-5">
@@ -167,13 +167,13 @@ export default function DiscoverPage() {
               price — check before you order.
             </p>
             <p className="mt-2">
-              The artwork on each card is <strong>drawn, not photographed</strong>: a Sadu weave
-              generated from the café&rsquo;s own name. Putting a stock photo next to a real
-              business would suggest it is a picture of that place, which it would not be. Drop a
-              real photo into{" "}
-              <code className="rounded bg-mist-200 px-1.5 py-0.5 text-xs">/public/cafes/</code> and
-              set <code className="rounded bg-mist-200 px-1.5 py-0.5 text-xs">photo</code> on the
-              café to use it instead.
+              Each badge shows the caf&eacute;&rsquo;s <strong>own logo</strong> where we can reach
+              one &mdash; from a file in{" "}
+              <code className="rounded bg-mist-200 px-1.5 py-0.5 text-xs">/public/cafes/</code>, or
+              fetched by your browser from their own Instagram or website. Where none loads, the
+              card draws its own emblem rather than borrowing someone else&rsquo;s artwork. The
+              cover behind it is drawn too: a Sadu weave generated from the caf&eacute;&rsquo;s
+              name.
             </p>
           </aside>
         </div>
