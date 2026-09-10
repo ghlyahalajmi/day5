@@ -102,12 +102,18 @@ export default function LandingPage() {
               </Link>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
               <GuestButton className="text-sm font-medium text-sand-300 underline underline-offset-4 transition-colors hover:text-saffron-400 disabled:opacity-60" />
-              <p className="mt-1 text-xs text-sand-300/70">
-                Just want a look? Try it without signing up.
-              </p>
+              <Link
+                href="/discover"
+                className="text-sm font-medium text-sand-300 underline underline-offset-4 transition-colors hover:text-saffron-400"
+              >
+                Where to drink gahwa in Kuwait
+              </Link>
             </div>
+            <p className="mt-1 text-xs text-sand-300/70">
+              Just want a look? Try it without signing up.
+            </p>
           </div>
 
           {/* The preview sits inside an arch, like a doorway. */}

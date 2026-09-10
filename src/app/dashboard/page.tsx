@@ -18,7 +18,12 @@ export const metadata: Metadata = {
 /** Never cache this page: it is different for every signed-in user. */
 export const dynamic = "force-dynamic";
 
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ place?: string }>;
+}) {
+  const { place } = await searchParams;
   if (!isSupabaseConfigured()) {
     return (
       <main className="flex flex-1 items-center justify-center px-5 py-16">
@@ -72,6 +77,13 @@ export default async function DashboardPage() {
             Keep track of the gahwa experiences you want to remember.
           </p>
 
+          <Link
+            href="/discover"
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-gahwa-500/40 bg-gahwa-100 px-4 py-2 text-sm font-semibold text-gahwa-700 transition-colors hover:bg-gahwa-500 hover:text-white"
+          >
+            Where to drink gahwa in Kuwait →
+          </Link>
+
           {guest ? (
             <p className="mt-4 inline-block rounded-xl border border-sand-300 bg-sand-50 px-4 py-2.5 text-sm text-ink-700">
               You are looking around as a guest.{" "}
@@ -94,7 +106,7 @@ export default async function DashboardPage() {
             </Alert>
           ) : null}
 
-          <LogSection logs={logs} />
+          <LogSection logs={logs} initialPlace={place ?? ""} />
         </div>
       </main>
 

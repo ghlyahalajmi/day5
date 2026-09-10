@@ -15,9 +15,16 @@ const addButtonClass =
  * add form, and asking Next.js to re-fetch the list after a save.
  * The list itself is loaded on the server, so a refresh never loses it.
  */
-export function LogSection({ logs }: { logs: GahwaLog[] }) {
+export function LogSection({
+  logs,
+  initialPlace = "",
+}: {
+  logs: GahwaLog[];
+  /** Prefilled when arriving from the Kuwait guide via ?place=... */
+  initialPlace?: string;
+}) {
   const router = useRouter();
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(initialPlace !== "");
 
   return (
     <div className="space-y-6">
@@ -40,6 +47,7 @@ export function LogSection({ logs }: { logs: GahwaLog[] }) {
 
       {isFormOpen ? (
         <AddGahwaForm
+          initialPlace={initialPlace}
           onAdded={() => router.refresh()}
           onCancel={() => setIsFormOpen(false)}
         />

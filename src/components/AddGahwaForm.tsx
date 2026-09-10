@@ -15,13 +15,15 @@ function todayIsoDate(): string {
 }
 
 export function AddGahwaForm({
+  initialPlace = "",
   onAdded,
   onCancel,
 }: {
+  initialPlace?: string;
   onAdded: () => void;
   onCancel: () => void;
 }) {
-  const [placeName, setPlaceName] = useState("");
+  const [placeName, setPlaceName] = useState(initialPlace);
   // The form only mounts after the user clicks "Add Gahwa", so this runs in
   // the browser and picks up the user's own clock.
   const [date, setDate] = useState(todayIsoDate);
