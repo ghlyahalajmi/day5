@@ -24,8 +24,10 @@ export type Cafe = {
   signatures?: string[];
   /** Indicative price range in Kuwaiti dinar, not a quoted menu price. */
   priceBand?: string;
-  /** Optional path to a real photo you have the right to use. */
+  /** Optional path to a real photo of the branch, e.g. "/cafes/dose.jpg". */
   photo?: string;
+  /** Optional path to the café's own logo, e.g. "/cafes/dose-logo.png". */
+  logo?: string;
 };
 
 const BAND = "1.5 – 3.0 KD";
@@ -74,6 +76,12 @@ export const CAFES: Cafe[] = [
   { name: "Mug Coffee Roastery", area: "Jabriya", knownFor: "A 24/7 roastery café in Jabriya's residential heart.", signatures: ["V60", "Spanish latte", "Single origin"], priceBand: BAND },
   { name: "Toby's Estate Jabriya", area: "Jabriya", knownFor: "Espresso-based drinks, seasonal brews and all-day bites.", signatures: ["Seasonal brews", "All-day menu"], priceBand: "1.5 – 4.0 KD" },
   { name: "% Arabica Jabriya", area: "Jabriya", knownFor: "Single-origin espresso, Kyoto-style filter, Chemex-accented design.", signatures: ["Kyoto filter", "Chemex"], priceBand: "1.75 – 3.5 KD" },
+
+  // ---------- Jahra ----------
+  { name: "Dose Café Jahra", area: "Jahra", knownFor: "The Jahra Mall branch of Dose, the Kuwaiti chain started in 2016. Single-origin beans and an inventive drinks list.", signatures: ["Charcoal latte", "Matcha", "Single origin"], priceBand: "1.5 – 3.5 KD" },
+  { name: "Olea Cafe", area: "Jahra", knownFor: "A gem of Jahra: warm room full of bookshelves, plants and natural light, with baked goods alongside the coffee.", signatures: ["Coffee", "Bakes"], priceBand: BAND },
+  { name: "Good Stuck Cafe", area: "Jahra", priceBand: BAND },
+  { name: "Love Sweet Cafe", area: "Jahra", signatures: ["Coffee", "Sweets"], priceBand: BAND },
 ];
 
 /** The coffee districts, for the area chips. */
