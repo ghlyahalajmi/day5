@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DallahIcon } from "@/components/DallahIcon";
+import { FinjalIcon } from "@/components/FinjalIcon";
 import { Logo } from "@/components/Logo";
 import { Stars } from "@/components/Stars";
 
@@ -28,7 +28,7 @@ export default function LandingPage() {
         <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 pt-10 pb-16 sm:px-8 sm:pt-16 sm:pb-24 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-sand-300 bg-sand-50/80 px-3 py-1 text-xs font-medium tracking-wide text-ink-700 uppercase">
-              <DallahIcon className="h-3.5 w-3.5 text-gahwa-500" />
+              <FinjalIcon className="h-3.5 w-3.5 text-gahwa-500" />
               Private by design
             </p>
             <h1 className="mt-5 font-display text-4xl leading-[1.1] font-semibold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">
