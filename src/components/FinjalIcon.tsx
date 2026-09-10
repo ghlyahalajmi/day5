@@ -55,10 +55,7 @@ export function FinjalIcon({
       />
 
       {/* the saucer */}
-      <path
-        d="M8 39.8h32c0 3-2.5 5.5-5.5 5.5h-21c-3 0-5.5-2.5-5.5-5.5z"
-        fill="currentColor"
-      />
+      <path d="M8 39.8h32c0 3-2.5 5.5-5.5 5.5h-21c-3 0-5.5-2.5-5.5-5.5z" fill="currentColor" />
     </svg>
   );
 }

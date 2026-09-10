@@ -4,7 +4,7 @@ import { initials, nameSeed, type Cafe } from "@/lib/cafes";
  * The visual at the top of each café card: a background, and a round brand
  * badge sitting on it — the layout you see on any café directory.
  *
- * Background: the café's own photo if it has one, otherwise a warm gradient
+ * Background: the café's own photo if it has one, otherwise a pastel gradient
  * with a band of Sadu weaving, both picked deterministically from the name
  * so a café always looks the same.
  *
@@ -17,12 +17,12 @@ import { initials, nameSeed, type Cafe } from "@/lib/cafes";
  */
 
 const GRADIENTS = [
-  "from-espresso-900 via-espresso-700 to-gahwa-700",
-  "from-gahwa-700 via-gahwa-600 to-saffron-500",
-  "from-espresso-800 via-gahwa-700 to-espresso-900",
-  "from-gahwa-600 via-saffron-500 to-gahwa-500",
-  "from-espresso-900 via-gahwa-600 to-espresso-700",
-  "from-saffron-500 via-gahwa-500 to-gahwa-700",
+  "from-blush-200 via-rose-300 to-lilac-300",
+  "from-sky-200 via-azure-300 to-lilac-300",
+  "from-lilac-300 via-blush-200 to-sky-200",
+  "from-rose-300 via-blush-200 to-azure-300",
+  "from-azure-300 via-sky-200 to-blush-200",
+  "from-lilac-300 via-azure-300 to-rose-300",
 ];
 
 export function CafeCover({ cafe }: { cafe: Cafe }) {
@@ -44,11 +44,11 @@ export function CafeCover({ cafe }: { cafe: Cafe }) {
       ) : (
         <div aria-hidden="true" className={`h-full w-full bg-gradient-to-br ${gradient}`}>
           <div
-            className="sadu-band sadu-band-light absolute inset-x-0 top-3 opacity-60"
+            className="sadu-band sadu-band-ink absolute inset-x-0 top-3 opacity-45"
             style={{ backgroundPositionX: `${offset}px` }}
           />
           <div
-            className="sadu-band sadu-band-light absolute inset-x-0 bottom-3 opacity-35"
+            className="sadu-band sadu-band-ink absolute inset-x-0 bottom-3 opacity-25"
             style={{ backgroundPositionX: `${(offset + 20) % 40}px` }}
           />
         </div>
@@ -56,7 +56,7 @@ export function CafeCover({ cafe }: { cafe: Cafe }) {
 
       {/* The brand badge, centred over the cover. */}
       <span className="absolute inset-0 flex items-center justify-center">
-        <span className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2 border-sand-50 bg-sand-50 shadow-lg">
+        <span className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-white shadow-lg ring-1 ring-plum-900/10">
           {cafe.logo ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -68,7 +68,7 @@ export function CafeCover({ cafe }: { cafe: Cafe }) {
           ) : (
             <span
               aria-hidden="true"
-              className="font-display text-xl font-semibold tracking-tight text-gahwa-700"
+              className="font-display text-xl font-semibold tracking-tight text-rose-800"
             >
               {initials(cafe.name)}
             </span>

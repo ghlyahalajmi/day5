@@ -65,55 +65,58 @@ export default async function DashboardPage({
     <>
       <DashboardNav email={user.email ?? "Signed in"} isGuest={guest} />
 
-      <main className="mx-auto w-full max-w-5xl flex-1 px-5 py-8 sm:px-8 sm:py-12">
-        <section>
-          <p className="text-sm font-medium text-gahwa-600">
-            Welcome back, {greetingName} <span aria-hidden="true">☕</span>
-          </p>
-          <h1 className="mt-1 font-display text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">
-            Your Gahwa Log
-          </h1>
-          <p className="mt-2 max-w-xl text-base text-ink-700">
-            Keep track of the gahwa experiences you want to remember.
-          </p>
-
-          <Link
-            href="/discover"
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-gahwa-500/40 bg-gahwa-100 px-4 py-2 text-sm font-semibold text-gahwa-700 transition-colors hover:bg-gahwa-500 hover:text-white"
-          >
-            Where to drink gahwa in Kuwait →
-          </Link>
-
-          {guest ? (
-            <p className="mt-4 inline-block rounded-xl border border-sand-300 bg-sand-50 px-4 py-2.5 text-sm text-ink-700">
-              You are looking around as a guest.{" "}
-              <Link
-                href="/signup"
-                className="font-semibold text-gahwa-600 underline underline-offset-4 hover:text-gahwa-700"
-              >
-                Create an account
-              </Link>{" "}
-              to keep a log that is truly yours.
+      <main className="dawn-glow w-full flex-1">
+        <div className="mx-auto w-full max-w-5xl px-5 py-8 sm:px-8 sm:py-12">
+          <section>
+            <p className="text-sm font-medium text-rose-700">
+              Welcome back, {greetingName} <span aria-hidden="true">☕</span>
             </p>
-          ) : null}
-        </section>
+            <h1 className="mt-1 font-display text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">
+              Your Gahwa Log
+            </h1>
+            <p className="mt-2 max-w-xl text-base text-ink-700">
+              Keep track of the gahwa experiences you want to remember.
+            </p>
 
-        <div className="mt-8 space-y-6">
-          {error ? (
-            <Alert tone="error">
-              We couldn&rsquo;t load your gahwa log right now. Please refresh the page and try
-              again.
-            </Alert>
-          ) : null}
+            <Link
+              href="/discover"
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-rose-400/40 bg-rose-100 px-4 py-2 text-sm font-semibold text-rose-800 transition-colors hover:bg-rose-300 hover:text-plum-900"
+            >
+              Where to drink gahwa in Kuwait →
+            </Link>
 
-          <LogSection logs={logs} initialPlace={place ?? ""} />
+            {guest ? (
+              <p className="mt-4 inline-block rounded-xl border border-mist-300 bg-mist-50 px-4 py-2.5 text-sm text-ink-700">
+                You are looking around as a guest.{" "}
+                <Link
+                  href="/signup"
+                  className="font-semibold text-rose-700 underline underline-offset-4 hover:text-rose-800"
+                >
+                  Create an account
+                </Link>{" "}
+                to keep a log that is truly yours.
+              </p>
+            ) : null}
+          </section>
+
+          <div className="mt-8 space-y-6">
+            {error ? (
+              <Alert tone="error">
+                We couldn&rsquo;t load your gahwa log right now. Please refresh the page and try
+                again.
+              </Alert>
+            ) : null}
+
+            <LogSection logs={logs} initialPlace={place ?? ""} />
+          </div>
         </div>
       </main>
 
-      <footer className="border-t border-sand-200 py-6">
-        <p className="mx-auto w-full max-w-5xl px-5 text-sm text-ink-500 sm:px-8">
-          Only you can see this log.
-        </p>
+      <footer className="border-t border-mist-200 py-6">
+        <div className="mx-auto flex w-full max-w-5xl items-center gap-3 px-5 sm:px-8">
+          <span className="palette-rule h-[3px] w-14 rounded-full" aria-hidden="true" />
+          <p className="text-sm text-ink-500">Only you can see this log.</p>
+        </div>
       </footer>
     </>
   );

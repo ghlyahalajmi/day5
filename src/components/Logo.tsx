@@ -11,12 +11,12 @@ export function Logo({ href = "/", tone = "dark" }: { href?: string; tone?: "dar
     <Link
       href={href}
       className={`group flex items-center gap-2.5 rounded-lg transition-opacity hover:opacity-80 ${
-        isLight ? "text-sand-100" : "text-ink-900"
+        isLight ? "text-mist-100" : "text-ink-900"
       }`}
     >
       <span
         className={`arch-sm flex h-10 w-9 shrink-0 items-end justify-center pb-1.5 shadow-sm ${
-          isLight ? "bg-saffron-500 text-espresso-900" : "bg-gahwa-500 text-sand-50"
+          isLight ? "bg-azure-300 text-plum-900" : "bg-rose-300 text-plum-900"
         }`}
       >
         <FinjalIcon className="h-5 w-5" detail={false} />

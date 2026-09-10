@@ -34,8 +34,8 @@ export function RatingInput({
             />
             <span
               aria-hidden="true"
-              className={`block rounded text-3xl transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gahwa-600 ${
-                star <= value ? "text-gahwa-500" : "text-sand-400 hover:text-gahwa-500/60"
+              className={`block rounded text-3xl transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-rose-700 ${
+                star <= value ? "text-rose-500" : "text-lilac-300 hover:text-rose-500/60"
               }`}
             >
               {star <= value ? "★" : "☆"}

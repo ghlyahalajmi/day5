@@ -8,7 +8,7 @@ import { GahwaCard } from "./GahwaCard";
 import type { GahwaLog } from "@/lib/types";
 
 const addButtonClass =
-  "inline-flex items-center justify-center gap-2 rounded-full bg-gahwa-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-gahwa-600";
+  "inline-flex items-center justify-center gap-2 rounded-full bg-rose-300 px-5 py-2.5 text-sm font-semibold text-plum-900 shadow-sm transition-colors hover:bg-rose-400";
 
 /**
  * Holds the small amount of interactivity the dashboard needs: opening the

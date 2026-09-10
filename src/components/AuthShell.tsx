@@ -18,19 +18,20 @@ export function AuthShell({
     <div className="flex min-h-full flex-1 flex-col">
       <SaduBand />
 
-      <div className="ember-glow grain relative bg-espresso-900">
+      <div className="aurora-glow grain relative bg-plum-900">
         <header className="relative mx-auto w-full max-w-6xl px-5 py-5 sm:px-8">
           <Logo tone="light" />
         </header>
       </div>
 
-      <div className="gahwa-glow flex flex-1 flex-col">
+      <div className="dawn-glow flex flex-1 flex-col">
         <main className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center px-5 py-10 sm:px-8 sm:py-14">
           {/* The form sits under an arch, matching the landing page. */}
-          <div className="arch relative overflow-hidden border border-sand-200 bg-white shadow-xl shadow-ink-900/10">
-            <div className="px-6 pt-16 pb-7 sm:px-8 sm:pb-8">
+          <div className="arch relative overflow-hidden border border-mist-200 bg-white shadow-xl shadow-lilac-700/20">
+            <div className="palette-crown absolute inset-x-0 top-0 h-28" aria-hidden="true" />
+            <div className="relative px-6 pt-16 pb-7 sm:px-8 sm:pb-8">
               <div className="flex justify-center" aria-hidden="true">
-                <span className="sadu-diamond bg-gahwa-500" />
+                <span className="sadu-diamond bg-rose-300" />
               </div>
               <h1 className="mt-5 text-center font-display text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">
                 {title}
@@ -54,11 +55,11 @@ export function AuthShell({
 
 /** Text input styled once so every form field looks the same. */
 export const fieldClass =
-  "mt-1.5 block w-full rounded-xl border border-sand-300 bg-sand-50 px-3.5 py-2.5 text-base text-ink-900 placeholder:text-ink-500/70 transition-colors focus:border-gahwa-500 focus:bg-white focus:outline-none";
+  "mt-1.5 block w-full rounded-xl border border-mist-300 bg-mist-50 px-3.5 py-2.5 text-base text-ink-900 placeholder:text-ink-500/70 transition-colors focus:border-rose-400 focus:bg-white focus:outline-none";
 
 /** Label styled once. */
 export const labelClass = "block text-sm font-medium text-ink-900";
 
 /** The one primary button style used across the app. */
 export const primaryButtonClass =
-  "inline-flex w-full items-center justify-center rounded-xl bg-gahwa-500 px-5 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-gahwa-600 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex w-full items-center justify-center rounded-xl bg-rose-300 px-5 py-3 text-base font-semibold text-plum-900 shadow-sm transition-colors hover:bg-rose-400 disabled:cursor-not-allowed disabled:opacity-60";

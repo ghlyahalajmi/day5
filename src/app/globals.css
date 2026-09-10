@@ -2,34 +2,71 @@
 
 /* ------------------------------------------------------------------
    A Gahwa Log — design tokens
-   Warm sand and cream, a deep espresso for drama, and two accents:
-   gahwa amber and the saffron that colours Arabic coffee.
+
+   The palette is five pastels:
+     lilac #CDB4DB · blush #FFC8DD · rose #FFAFCC · sky #BDE0FE · azure #A2D2FF
+
+   All five are light (1.4–1.9:1 against white), so none of them can ever
+   carry white text. The rule that follows from that, and that the whole
+   UI obeys:
+
+     · a pastel is a BACKGROUND, and dark plum ink sits on top of it
+       (9.0–12.4:1 — comfortably past AA)
+     · a pastel is TEXT only on the deep plum surfaces (9.0–12.4:1)
+     · for accent text on paper we use the deepened siblings
+       (rose-700, lilac-700, azure-700 — all past 6.5:1)
    ------------------------------------------------------------------ */
 @theme {
-  --color-sand-50: #fdfaf5;
-  --color-sand-100: #faf5ec;
-  --color-sand-200: #f3ead9;
-  --color-sand-300: #e8dac2;
-  --color-sand-400: #d6c3a5;
+  /* Paper: neutrals warmed towards lilac rather than grey. */
+  --color-mist-50: #fffdff;
+  --color-mist-100: #faf6fd;
+  --color-mist-200: #f1e9f8;
+  --color-mist-300: #e2d3ee;
 
-  --color-ink-900: #2a1f16;
-  --color-ink-700: #4a3a2b;
-  --color-ink-500: #7a6a58;
+  /* Body ink — plum rather than black, so it belongs to the palette. */
+  --color-ink-900: #2b1b3d;
+  --color-ink-700: #4a3562;
+  --color-ink-500: #6e5a84;
 
-  /* Deep roasted-bean tones, for the hero and footer. */
-  --color-espresso-900: #201510;
-  --color-espresso-800: #2c1e16;
-  --color-espresso-700: #3d2b20;
+  /* Deep plum surfaces: the hero, the nav, the footer. White reads 17:1
+     here and every pastel reads 9:1 or better. */
+  --color-plum-900: #241534;
+  --color-plum-800: #33204a;
+  --color-plum-700: #452c61;
 
-  /* Gahwa amber — 4.6:1 on cream, so white text on it passes AA. */
-  --color-gahwa-500: #a8652a;
-  --color-gahwa-600: #8e5322;
-  --color-gahwa-700: #74431b;
-  --color-gahwa-100: #f6e8d8;
+  /* Lilac */
+  --color-lilac-300: #cdb4db;
+  --color-lilac-500: #a97fc0;
+  --color-lilac-700: #6b3f87;
 
-  /* Saffron — 7.1:1 against espresso, used for accents on dark. */
-  --color-saffron-400: #e0a83c;
-  --color-saffron-500: #d99a2b;
+  /* Blush */
+  --color-blush-200: #ffc8dd;
+  --color-blush-400: #ff9ec4;
+
+  /* `rose` and `sky` are also Tailwind default scales. Clear them first,
+     so a stray `text-rose-600` fails loudly instead of quietly rendering
+     Tailwind's red-pink next to our palette. */
+  --color-rose-*: initial;
+  --color-sky-*: initial;
+
+  /* Rose — the primary action colour. -300 is the palette pastel (button
+     face), -500 is deepened to 3.9:1 so icons and stars stay visible on
+     paper, -700/-800 are text-grade at 6.5:1 and 8.9:1. */
+  --color-rose-100: #ffeaf2;
+  --color-rose-300: #ffafcc;
+  --color-rose-400: #ff93b9;
+  --color-rose-500: #db4f82;
+  --color-rose-700: #9d3a63;
+  --color-rose-800: #7e2c4e;
+
+  /* Sky */
+  --color-sky-200: #bde0fe;
+  --color-sky-400: #8cc5f7;
+
+  /* Azure */
+  --color-azure-300: #a2d2ff;
+  --color-azure-400: #7fbffa;
+  --color-azure-700: #1f5f9e;
 
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -40,7 +77,7 @@ html {
 }
 
 body {
-  background-color: var(--color-sand-100);
+  background-color: var(--color-mist-100);
   color: var(--color-ink-900);
   font-family: var(--font-sans);
   /* Never allow sideways scrolling on small phones. */
@@ -48,26 +85,38 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-gahwa-600);
+  outline: 2px solid var(--color-lilac-700);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
+::selection {
+  background-color: var(--color-blush-200);
+  color: var(--color-ink-900);
+}
+
 /* ------------------------------------------------------------------
    Sadu band — the geometric diamond weave of Kuwaiti Bedouin textiles,
-   drawn as a repeating SVG so it costs no image request.
+   drawn as a repeating SVG so it costs no image request. Traditionally
+   red and black; here it is woven in the five pastels instead.
    ------------------------------------------------------------------ */
 .sadu-band {
   height: 14px;
   background-repeat: repeat-x;
   background-position: center;
   background-size: 40px 14px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M10 1 L17 7 L10 13 L3 7 Z' fill='%23a8652a'/%3E%3Cpath d='M30 1 L37 7 L30 13 L23 7 Z' fill='%23d99a2b'/%3E%3Cpath d='M20 4 L23 7 L20 10 L17 7 Z' fill='%238e5322'/%3E%3Cpath d='M0 4 L3 7 L0 10 L-3 7 Z' fill='%238e5322'/%3E%3Cpath d='M40 4 L43 7 L40 10 L37 7 Z' fill='%238e5322'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M10 1 L17 7 L10 13 L3 7 Z' fill='%23ffafcc'/%3E%3Cpath d='M30 1 L37 7 L30 13 L23 7 Z' fill='%23a2d2ff'/%3E%3Cpath d='M20 4 L23 7 L20 10 L17 7 Z' fill='%23cdb4db'/%3E%3Cpath d='M0 4 L3 7 L0 10 L-3 7 Z' fill='%23cdb4db'/%3E%3Cpath d='M40 4 L43 7 L40 10 L37 7 Z' fill='%23cdb4db'/%3E%3C/svg%3E");
 }
 
-/* Lighter weave for use on the dark espresso hero. */
+/* The same weave in the lighter half of the palette, for the deep plum
+   surfaces where the rose reads too close to the ground. */
 .sadu-band-light {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M10 1 L17 7 L10 13 L3 7 Z' fill='%23d99a2b'/%3E%3Cpath d='M30 1 L37 7 L30 13 L23 7 Z' fill='%23f6e8d8'/%3E%3Cpath d='M20 4 L23 7 L20 10 L17 7 Z' fill='%23a8652a'/%3E%3Cpath d='M0 4 L3 7 L0 10 L-3 7 Z' fill='%23a8652a'/%3E%3Cpath d='M40 4 L43 7 L40 10 L37 7 Z' fill='%23a8652a'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M10 1 L17 7 L10 13 L3 7 Z' fill='%23ffc8dd'/%3E%3Cpath d='M30 1 L37 7 L30 13 L23 7 Z' fill='%23bde0fe'/%3E%3Cpath d='M20 4 L23 7 L20 10 L17 7 Z' fill='%23cdb4db'/%3E%3Cpath d='M0 4 L3 7 L0 10 L-3 7 Z' fill='%23cdb4db'/%3E%3Cpath d='M40 4 L43 7 L40 10 L37 7 Z' fill='%23cdb4db'/%3E%3C/svg%3E");
+}
+
+/* The weave in plum, for use on the pastel grounds themselves. */
+.sadu-band-ink {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M10 1 L17 7 L10 13 L3 7 Z' fill='%23452c61'/%3E%3Cpath d='M30 1 L37 7 L30 13 L23 7 Z' fill='%23241534'/%3E%3Cpath d='M20 4 L23 7 L20 10 L17 7 Z' fill='%236b3f87'/%3E%3Cpath d='M0 4 L3 7 L0 10 L-3 7 Z' fill='%236b3f87'/%3E%3Cpath d='M40 4 L43 7 L40 10 L37 7 Z' fill='%236b3f87'/%3E%3C/svg%3E");
 }
 
 /* A single woven diamond, used as a small divider ornament. */
@@ -89,18 +138,25 @@ body {
   border-radius: 9999px 9999px 12px 12px;
 }
 
-/* Warm haze behind the hero. */
-.gahwa-glow {
+/* ------------------------------------------------------------------
+   Light — pastel haze rather than a flat fill.
+   ------------------------------------------------------------------ */
+
+/* Dawn: blush and sky bleeding into the paper behind light sections. */
+.dawn-glow {
   background-image:
-    radial-gradient(60rem 32rem at 12% -10%, var(--color-gahwa-100) 0%, transparent 60%),
-    radial-gradient(48rem 28rem at 92% 4%, #f7efe2 0%, transparent 62%);
+    radial-gradient(60rem 32rem at 12% -10%, #ffc8dd 0%, transparent 60%),
+    radial-gradient(48rem 28rem at 92% 4%, #bde0fe 0%, transparent 62%),
+    radial-gradient(40rem 26rem at 50% 108%, #cdb4db 0%, transparent 58%);
+  background-color: var(--color-mist-100);
 }
 
-/* Firelight behind the dark hero. */
-.ember-glow {
+/* Aurora: the same five hues, but as light thrown across deep plum. */
+.aurora-glow {
   background-image:
-    radial-gradient(44rem 26rem at 78% 8%, rgba(217, 154, 43, 0.22) 0%, transparent 62%),
-    radial-gradient(38rem 24rem at 8% 92%, rgba(168, 101, 42, 0.28) 0%, transparent 60%);
+    radial-gradient(44rem 26rem at 78% 6%, rgba(255, 175, 204, 0.3) 0%, transparent 62%),
+    radial-gradient(40rem 24rem at 8% 90%, rgba(162, 210, 255, 0.28) 0%, transparent 60%),
+    radial-gradient(34rem 22rem at 42% 40%, rgba(205, 180, 219, 0.22) 0%, transparent 64%);
 }
 
 /* Very light speckle so large flat areas are not dead. */
@@ -114,11 +170,86 @@ body {
   background-size: 14px 14px;
 }
 
+/* ------------------------------------------------------------------
+   Flourishes
+   ------------------------------------------------------------------ */
+
+/* A word painted through the palette. Only ever used on large display
+   type, and always over a plum ground where every stop clears 9:1. */
+.palette-text {
+  background-image: linear-gradient(
+    100deg,
+    #ffc8dd 0%,
+    #ffafcc 26%,
+    #cdb4db 52%,
+    #bde0fe 76%,
+    #a2d2ff 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: palette-drift 14s ease-in-out infinite alternate;
+}
+
+@keyframes palette-drift {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* All five hues in a row. Used as a hairline rule and as the thread along
+   the top edge of a card; the caller sets the height and the radius. */
+.palette-rule {
+  background-image: linear-gradient(
+    90deg,
+    #cdb4db 0%,
+    #ffc8dd 25%,
+    #ffafcc 50%,
+    #bde0fe 75%,
+    #a2d2ff 100%
+  );
+}
+
+/* The palette washing down over the crown of an arch, fading to nothing
+   so the type below it stays on clean white. */
+.palette-crown {
+  background-image: linear-gradient(
+    90deg,
+    #cdb4db 0%,
+    #ffc8dd 25%,
+    #ffafcc 50%,
+    #bde0fe 75%,
+    #a2d2ff 100%
+  );
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent);
+}
+
+/* Cards lift a little, and pick up a coloured shadow rather than a grey
+   one, so the palette carries even into the depth cues. */
+.lift {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px -18px rgba(107, 63, 135, 0.45);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .lift:hover {
+    transform: none;
   }
 }

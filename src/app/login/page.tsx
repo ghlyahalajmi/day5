@@ -20,7 +20,7 @@ export default function LoginPage() {
           New here?{" "}
           <Link
             href="/signup"
-            className="font-semibold text-gahwa-600 underline underline-offset-4 hover:text-gahwa-700"
+            className="font-semibold text-rose-700 underline underline-offset-4 hover:text-rose-800"
           >
             Create an account
           </Link>

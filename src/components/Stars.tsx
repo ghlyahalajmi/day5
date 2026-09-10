@@ -10,7 +10,7 @@ export function Stars({ rating }: { rating: number }) {
         <span
           key={star}
           aria-hidden="true"
-          className={star <= safe ? "text-gahwa-500" : "text-sand-400"}
+          className={star <= safe ? "text-rose-500" : "text-lilac-300"}
         >
           {star <= safe ? "★" : "☆"}
         </span>

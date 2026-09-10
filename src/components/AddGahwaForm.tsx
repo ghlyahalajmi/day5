@@ -106,7 +106,7 @@ export function AddGahwaForm({
   return (
     <section
       aria-labelledby="add-gahwa-heading"
-      className="rounded-3xl border border-sand-200 bg-white p-5 shadow-sm sm:p-6"
+      className="rounded-3xl border border-mist-200 bg-white p-5 shadow-sm sm:p-6"
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 id="add-gahwa-heading" className="font-display text-xl font-semibold text-ink-900">
@@ -115,7 +115,7 @@ export function AddGahwaForm({
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-full px-3 py-1.5 text-sm font-medium text-ink-500 transition-colors hover:bg-sand-100 hover:text-ink-900"
+          className="rounded-full px-3 py-1.5 text-sm font-medium text-ink-500 transition-colors hover:bg-mist-100 hover:text-ink-900"
         >
           Cancel
         </button>

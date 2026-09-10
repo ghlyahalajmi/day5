@@ -32,7 +32,7 @@ Deliberately **not** built yet: edit, delete, search, filtering, statistics, pic
 | **React** | Builds the interface out of reusable components. |
 | **TypeScript** | Catches mistakes (like a typo in a column name) before the app runs. |
 | **Tailwind CSS** | Styling, written as small utility classes directly on the markup. |
-| **Design** | Sadu weaving patterns, arch shapes, espresso and saffron — drawn in CSS/SVG, no image files. |
+| **Design** | Sadu weaving patterns, arch shapes, and a five-pastel palette (`#CDB4DB` `#FFC8DD` `#FFAFCC` `#BDE0FE` `#A2D2FF`) — drawn in CSS/SVG, no image files. |
 | **Supabase Auth** | Handles signup, login, logout, and the session cookie. |
 | **Supabase PostgreSQL** | The actual database that stores the gahwa records. |
 | **Supabase Row Level Security** | The privacy lock. Decides which rows each user is allowed to see. |

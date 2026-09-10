@@ -15,11 +15,13 @@ export function SaduBand({ tone = "warm" }: { tone?: "warm" | "light" }) {
 export function SaduDivider() {
   return (
     <div aria-hidden="true" className="flex items-center justify-center gap-3 py-2">
-      <span className="h-px w-12 bg-sand-300 sm:w-20" />
-      <span className="sadu-diamond bg-gahwa-500" />
-      <span className="sadu-diamond bg-saffron-500" />
-      <span className="sadu-diamond bg-gahwa-500" />
-      <span className="h-px w-12 bg-sand-300 sm:w-20" />
+      <span className="h-px w-10 bg-gradient-to-r from-transparent to-lilac-300 sm:w-20" />
+      <span className="sadu-diamond bg-lilac-300" />
+      <span className="sadu-diamond bg-blush-200" />
+      <span className="sadu-diamond bg-rose-300" />
+      <span className="sadu-diamond bg-sky-200" />
+      <span className="sadu-diamond bg-azure-300" />
+      <span className="h-px w-10 bg-gradient-to-l from-transparent to-azure-300 sm:w-20" />
     </div>
   );
 }

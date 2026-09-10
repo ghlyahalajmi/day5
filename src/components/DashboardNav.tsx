@@ -6,23 +6,26 @@ export function DashboardNav({ email, isGuest = false }: { email: string; isGues
   return (
     <header>
       <SaduBand />
-      <div className="ember-glow grain relative bg-espresso-900">
+      <div className="aurora-glow grain relative bg-plum-900">
         <nav
           aria-label="Main"
           className="relative mx-auto flex w-full max-w-5xl flex-wrap items-center gap-x-3 gap-y-3 px-5 py-4 sm:px-8"
         >
           <Logo href="/dashboard" tone="light" />
 
-          <span className="ml-auto rounded-full bg-espresso-700 px-3 py-1.5 text-sm font-medium whitespace-nowrap text-saffron-400">
+          <span className="ml-auto rounded-full bg-plum-700 px-3 py-1.5 text-sm font-medium whitespace-nowrap text-sky-200">
             My Log
           </span>
 
           {isGuest ? (
-            <span className="rounded-full border border-saffron-500/50 px-3 py-1.5 text-sm font-medium whitespace-nowrap text-saffron-400">
+            <span className="rounded-full border border-azure-300/50 px-3 py-1.5 text-sm font-medium whitespace-nowrap text-sky-200">
               Guest
             </span>
           ) : (
-            <p className="hidden max-w-[14rem] truncate text-sm text-sand-300 lg:block" title={email}>
+            <p
+              className="hidden max-w-[14rem] truncate text-sm text-mist-300 lg:block"
+              title={email}
+            >
               {email}
             </p>
           )}
@@ -30,7 +33,7 @@ export function DashboardNav({ email, isGuest = false }: { email: string; isGues
           <form action="/auth/signout" method="post">
             <button
               type="submit"
-              className="rounded-full border border-sand-300/40 px-4 py-2 text-sm font-semibold whitespace-nowrap text-sand-100 transition-colors hover:bg-espresso-700"
+              className="rounded-full border border-mist-300/40 px-4 py-2 text-sm font-semibold whitespace-nowrap text-mist-100 transition-colors hover:bg-plum-700"
             >
               Log out
             </button>
