@@ -72,14 +72,30 @@ export function SignupForm() {
       }
 
       if (data.session) {
-        // Email confirmation is turned OFF: the user is already logged in.
+        // Supabase logged the new account straight in.
         setSuccess("Account created ☕ Taking you to your log…");
         router.replace("/dashboard");
         router.refresh();
         return;
       }
 
-      // Email confirmation is turned ON: no session until they click the link.
+      // No session came back, which usually means "Confirm email" is on.
+      // The account may still be usable, so try logging in right away
+      // rather than sending the user off to check their inbox for nothing.
+      const signIn = await supabase.auth.signInWithPassword({
+        email: trimmedEmail,
+        password,
+      });
+
+      if (!signIn.error) {
+        setSuccess("Account created ☕ Taking you to your log…");
+        router.replace("/dashboard");
+        router.refresh();
+        return;
+      }
+
+      // The account really does need confirming first.
+      console.error("Post-signup sign-in failed:", signIn.error.message);
       setSuccess(
         "Account created ☕ Check your inbox for a confirmation link, then come back and log in.",
       );
