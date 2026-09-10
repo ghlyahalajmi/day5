@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   A Gahwa Log — design tokens
+   Warm sand background, cream cards, one accent inspired by the
+   saffron-amber colour of Arabic coffee.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-sand-50: #fdfaf5;
+  --color-sand-100: #faf5ec;
+  --color-sand-200: #f3ead9;
+  --color-sand-300: #e8dac2;
+  --color-sand-400: #d6c3a5;
+
+  --color-ink-900: #2a1f16;
+  --color-ink-700: #4a3a2b;
+  --color-ink-500: #7a6a58;
+
+  /* Gahwa amber — 4.6:1 against cream, so white text on it passes AA. */
+  --color-gahwa-500: #a8652a;
+  --color-gahwa-600: #8e5322;
+  --color-gahwa-700: #74431b;
+  --color-gahwa-100: #f6e8d8;
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-sand-100);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  /* Never allow sideways scrolling on small phones. */
+  overflow-x: hidden;
+}
+
+/* A visible, consistent focus ring for keyboard users. */
+:focus-visible {
+  outline: 2px solid var(--color-gahwa-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Soft steam-like glow used behind the landing hero. */
+.gahwa-glow {
+  background-image:
+    radial-gradient(60rem 32rem at 12% -10%, var(--color-gahwa-100) 0%, transparent 60%),
+    radial-gradient(48rem 28rem at 92% 4%, #f7efe2 0%, transparent 62%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
