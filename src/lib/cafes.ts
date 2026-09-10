@@ -290,23 +290,6 @@ export function instagramUrl(cafe: Cafe): string | null {
   return cafe.instagram ? `https://www.instagram.com/${cafe.instagram}/` : null;
 }
 
-/**
- * The filename a café's logo is expected to have in /public/cafes/.
- * "% Arabica Jabriya" -> "arabica-jabriya", "Dose Café" -> "dose-cafe".
- *
- * Drop "arabica-jabriya.png" in that folder and the card picks it up on the
- * next build — no code change needed. See public/cafes/README.md.
- */
-export function slugify(name: string): string {
-  return name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/['\u2019]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
 /** The bare host of a café's own site, e.g. "arabica.coffee". */
 function websiteDomain(cafe: Cafe): string | null {
   if (!cafe.website) return null;
@@ -322,9 +305,9 @@ function websiteDomain(cafe: Cafe): string | null {
  * this list in the browser and shows the first image that actually loads;
  * if none do, it draws its own mark instead.
  *
- *   1. a file in /public/cafes/ — either set explicitly as `logo`, or just
- *      named after the café (see `slugify`) and found at build time. Always
- *      wins, never goes down, and is the only option under your own control
+ *   1. a file in /public/cafes/, pointed at by `logo` on the café below.
+ *      Always wins, never goes down, and is the only source under your own
+ *      control
  *   2. the café's Instagram profile picture, which for a Kuwaiti café is
  *      almost always their logo
  *   3. the logo on their own website
@@ -340,10 +323,9 @@ function websiteDomain(cafe: Cafe): string | null {
  * actually have it — putting a guessed handle here would risk showing one
  * business's logo on another's card.
  */
-export function logoSources(cafe: Cafe, logoFile?: string): string[] {
+export function logoSources(cafe: Cafe): string[] {
   const sources: string[] = [];
   if (cafe.logo) sources.push(cafe.logo);
-  if (logoFile) sources.push(logoFile);
   if (cafe.instagram) {
     sources.push(`https://unavatar.io/instagram/${cafe.instagram}?fallback=false`);
   }

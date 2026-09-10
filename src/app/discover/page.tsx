@@ -4,8 +4,7 @@ import { CafeCover } from "@/components/CafeCover";
 import { FinjalIcon } from "@/components/FinjalIcon";
 import { Logo } from "@/components/Logo";
 import { SaduBand, SaduDivider } from "@/components/SaduBand";
-import { CAFES, CAFE_AREAS, instagramUrl, mapsUrl, slugify, type Cafe } from "@/lib/cafes";
-import { readLogoFiles } from "@/lib/cafe-logo-files";
+import { CAFES, CAFE_AREAS, instagramUrl, mapsUrl, type Cafe } from "@/lib/cafes";
 
 export const metadata: Metadata = {
   title: "Where to drink gahwa in Kuwait",
@@ -20,11 +19,11 @@ function byArea(): [string, Cafe[]][] {
 const linkClass =
   "inline-flex items-center justify-center rounded-full border border-mist-300 px-3.5 py-2 text-sm font-semibold text-ink-900 transition-colors hover:bg-mist-100";
 
-function CafeCard({ cafe, logoFile }: { cafe: Cafe; logoFile?: string }) {
+function CafeCard({ cafe }: { cafe: Cafe }) {
   const instagram = instagramUrl(cafe);
   return (
     <article className="lift flex h-full flex-col overflow-hidden rounded-3xl border border-mist-200 bg-white shadow-sm">
-      <CafeCover cafe={cafe} logoFile={logoFile} />
+      <CafeCover cafe={cafe} />
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="font-display text-lg leading-tight font-semibold text-ink-900">
@@ -86,8 +85,6 @@ function CafeCard({ cafe, logoFile }: { cafe: Cafe; logoFile?: string }) {
 
 export default function DiscoverPage() {
   const groups = byArea();
-  // Read once at build time, so no card ever requests a file that is absent.
-  const logoFiles = readLogoFiles();
 
   return (
     <>
@@ -151,7 +148,7 @@ export default function DiscoverPage() {
               <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {list.map((cafe) => (
                   <li key={cafe.name}>
-                    <CafeCard cafe={cafe} logoFile={logoFiles[slugify(cafe.name)]} />
+                    <CafeCard cafe={cafe} />
                   </li>
                 ))}
               </ul>

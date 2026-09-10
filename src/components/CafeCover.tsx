@@ -26,7 +26,7 @@ const GRADIENTS = [
   "from-lilac-300 via-azure-300 to-rose-300",
 ];
 
-export function CafeCover({ cafe, logoFile }: { cafe: Cafe; logoFile?: string }) {
+export function CafeCover({ cafe }: { cafe: Cafe }) {
   const seed = nameSeed(cafe.name);
   const gradient = GRADIENTS[seed % GRADIENTS.length];
   // Nudge the weave sideways so no two covers line up identically.
@@ -57,7 +57,7 @@ export function CafeCover({ cafe, logoFile }: { cafe: Cafe; logoFile?: string })
 
       {/* The brand badge, centred over the cover. */}
       <span className="absolute inset-0 flex items-center justify-center">
-        <BrandBadge cafe={cafe} logoFile={logoFile} />
+        <BrandBadge cafe={cafe} />
       </span>
     </div>
   );

@@ -27,8 +27,8 @@ const RINGS = [
   { ring: "border-azure-300", tint: "bg-azure-300/25" },
 ];
 
-export function BrandBadge({ cafe, logoFile }: { cafe: Cafe; logoFile?: string }) {
-  const sources = logoSources(cafe, logoFile);
+export function BrandBadge({ cafe }: { cafe: Cafe }) {
+  const sources = logoSources(cafe);
   const [attempt, setAttempt] = useState(0);
   const src = sources[attempt];
 

@@ -2,7 +2,13 @@
  * One consistent box for the two things a user needs to be told:
  * something went wrong, or something worked.
  */
-export function Alert({ tone, children }: { tone: "error" | "success"; children: React.ReactNode }) {
+export function Alert({
+  tone,
+  children,
+}: {
+  tone: "error" | "success";
+  children: React.ReactNode;
+}) {
   const styles =
     tone === "error"
       ? "border-red-200 bg-red-50 text-red-800"
